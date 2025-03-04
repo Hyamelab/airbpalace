@@ -35,8 +35,11 @@ class PalacesController < ApplicationController
   end
 
   def destroy
-    @palace.destroy
+   if @palace.destroy
     redirect_to palaces_path
+   else
+    render :new, status: :unprocessable_entity
+   end
   end
 
   private
