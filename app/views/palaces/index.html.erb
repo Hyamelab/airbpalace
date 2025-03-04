@@ -1,9 +1,19 @@
+<%= render 'shared/navbar' %>
 
-<h1>hello </h1>
+<div class="container mt-5">
+  <h1>hello </h1>
 
-<ul>
-<% @palaces.each do |palace| %>
-    <li><%= palace.name %></li>
-    <li><%= palace.description %></li>
-  <% end %>
-</ul>
+  <div class="row justify-content-evenly g-3">
+    <% @palaces.each do |palace| %>
+      <div class="card" style="width: 18rem;">
+        <img src="..." class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title"><%= palace.name %></h5>
+          <p class="card-text"><%= palace.description %></p>
+          <p class="card-text"><%= palace.address %></p>
+          <a href="#" class="btn btn-primary">Visit the palace</a>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
