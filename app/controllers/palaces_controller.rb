@@ -1,6 +1,6 @@
 class PalacesController < ApplicationController
-  # before_action :authenticate_user, :only [:create, :update, :destroy]
-  # before_action :set_palace, :only [:show, :edit, :update, :destroy]
+  before_action :authenticate_user, only: [:create, :update, :destroy]
+  before_action :set_palace, only: [:show, :edit, :update, :destroy]
 
   def index
     @palaces = Palace.all
@@ -27,8 +27,11 @@ class PalacesController < ApplicationController
   end
 
   def update
-    @palace.update(palace_params)
+   if @palace.update(palace_params)
     redirect_to palace_path(@palace)
+   else
+    render :new, status: :unprocessable_entity
+   end
   end
 
   def destroy
@@ -39,7 +42,7 @@ class PalacesController < ApplicationController
   private
 
   def palace_params
-    params.require(:palace).permit(:name, :description, :address)
+    params.require(:palace).permit(:name, :description, :address, :price)
   end
 
   def set_palace
