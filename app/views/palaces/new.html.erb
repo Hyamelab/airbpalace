@@ -1,0 +1,10 @@
+<div class="container">
+  <h1>Add a new palace</h1>
+
+  <%= simple_form_for(@palace) do |f| %>
+    <%= f.input :name, label: "Name" %>
+    <%= f.input :description, label: "Description" %>
+    <%= f.input :address, label: "Address" %>
+    <%= f.submit "Submit", class: "btn btn-primary" %>
+  <% end %>
+</div>
