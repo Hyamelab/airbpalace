@@ -16,8 +16,8 @@ class PalacesController < ApplicationController
   def create
     @palace = Palace.new(palace_params)
     @palace.user = current_user
-    if @palace.save!
-      redirect_to palace_path(@palace)
+    if @palace.save
+      redirect_to palaces_path
     else
       render :new, status: :unprocessable_entity
     end
