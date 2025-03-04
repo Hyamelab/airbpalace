@@ -1,5 +1,5 @@
 class PalacesController < ApplicationController
-  before_action :authenticate_user, :only [:create, :update, :destroy]
+  # before_action :authenticate_user, :only [:create, :update, :destroy]
   before_action :set_palace, :only [:show, :edit, :update, :destroy]
 
   def index
@@ -37,7 +37,7 @@ class PalacesController < ApplicationController
   end
 
   private
-  
+
   def palace_params
     params.require(:palace).permit(:name, :description, :address)
   end
