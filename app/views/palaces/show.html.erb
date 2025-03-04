@@ -5,7 +5,10 @@
 </div>
 <div class='container'>
 <div class= 'titre'>
+<div class= 'price'>
 <h2 class = "text-start"> <%= @palace.name %></h2>
+<p class = 'text-align'><%= @palace.price %>€ / nuit</p>
+</div>
 <p class = 'text-bg-primary" style="width: 6rem;'> <em>The address of the palace is <%= @palace.address %></em></p>
 
 <br>
@@ -60,4 +63,4 @@
     </div>
 </div>
 
-<%= link_to "Back to palace index", palaces_path, class: "button-primary" %>
+<%= link_to "See all the palaces", palaces_path, class: "button-primary" %>
