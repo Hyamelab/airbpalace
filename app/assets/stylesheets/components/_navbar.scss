@@ -1,7 +1,11 @@
 .navbar {
   justify-content: space-between;
-  background: #caf0f8;
-  border: #00b4d8;
+  background: white;
+  border-bottom: 0.1rem solid;
+  border-color: #ADE8F4;
+  height: 130px;
+  text-decoration: none;
+  color: black;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -12,13 +16,29 @@
   width: 40px;
 }
 
-.custom-btn {
-  padding: 12px 20px;
-  border-radius: 8px;
-  color: #fff;
-  border: #00b4d8;
-  font-size: 16px;
-  text-align: center;
-  display: inline-block;
+// .custom-btn {
+//   padding: 12px 20px;
+//   border-radius: 8px;
+//   color: #fff;
+//   border: #00b4d8;
+//   font-size: 16px;
+//   text-align: center;
+//   display: inline-block;
+//   text-decoration: none;
+// }
+
+.middle-div a{
   text-decoration: none;
+  color: #0096C7;
+}
+
+.middle-div a:hover{
+  color: #ADE8F4;
+}
+
+.recherche {
+  border: 1px solid #ADE8F4;
+  box-shadow: none;
+  outline: none;
+  appearance: none;
 }
