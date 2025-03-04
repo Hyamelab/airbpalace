@@ -37,6 +37,7 @@ class PalacesController < ApplicationController
   end
 
   private
+  
   def palace_params
     params.require(:palace).permit(:name, :description, :address)
   end

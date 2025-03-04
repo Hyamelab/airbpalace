@@ -1,4 +1,4 @@
-# class BookingsController < ApplicationController
+ class BookingsController < ApplicationController
 #   before_action :authenticate_user, :only [:create, :update, :cancel]
 #   before_action :set_booking, :only [:show, :edit, :update, :cancel]
 
@@ -45,4 +45,4 @@
 #   def set_booking
 #     @booking = Booking.find(params[:id])
 #   end
-# end
+end
