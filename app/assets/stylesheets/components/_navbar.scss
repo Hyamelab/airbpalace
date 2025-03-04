@@ -1,6 +1,7 @@
 .navbar {
   justify-content: space-between;
-  background: #90E0EF;
+  background: #caf0f8;
+  border: #00b4d8;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -11,13 +12,13 @@
   width: 40px;
 }
 
-// .boutton a {
-//   text-decoration: none;
-//   color: white;
-//   padding: 30px;
-// }
-
-// .profil a {
-//   text-decoration: none;
-//   color: white;
-// }
+.custom-btn {
+  padding: 12px 20px;
+  border-radius: 8px;
+  color: #fff;
+  border: #00b4d8;
+  font-size: 16px;
+  text-align: center;
+  display: inline-block;
+  text-decoration: none;
+}
