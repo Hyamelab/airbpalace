@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   resources :palaces do
       resources :bookings, only: [:new, :create]
     end
-  resources :bookings, only: [:update, :edit, :show, :index]
+  resources :bookings, only: [:update, :edit, :show, :index, :accept, :refuse]
   # Defines the root path route ("/")
   # root "posts#index"
 end

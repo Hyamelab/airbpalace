@@ -18,6 +18,7 @@
     @palace = Palace.find(params[:palace_id])
     @booking = Booking.new(booking_params)
     @booking.user = current_user
+    @booking.status = nil
     @booking.palace = @palace
 
     if @booking.save
@@ -35,6 +36,26 @@
       redirect_to booking_path(@booking)
     else
       render :edit, status: :unprocessable_entity
+    end
+  end
+
+  def accept
+    @booking = Booking.find(params[:booking_id])
+    @booking.status = true
+    if @booking.update(booking_params)
+      redirect_to booking_path(@booking)
+    else
+      render :show, status: :unprocessable_entity
+    end
+  end
+
+  def refuse
+    @booking = Booking.find(params[:booking_id])
+    @booking.status = false
+    if @booking.update(booking_params)
+      redirect_to booking_path(@booking)
+    else
+      render :show, status: :unprocessable_entity
     end
   end
 
