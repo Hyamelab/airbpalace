@@ -1,5 +1,5 @@
  class BookingsController < ApplicationController
-  # before_action :set_booking, only: [:show, :update, :cancel]
+  before_action :set_booking, only: [:show, :update]
 
   def index
     @bookings = Booking.all
@@ -40,9 +40,10 @@
   end
 
   def accept
-    @booking = Booking.find(params[:booking_id])
-    @booking.status = true
-    if @booking.update(booking_params)
+    puts "on est entré dans accept"
+    @booking = Booking.find(params[:id])
+    puts "l'ID du booking est #{@booking.id}"
+    if @booking.update(status: true)
       redirect_to booking_path(@booking)
     else
       render :show, status: :unprocessable_entity
@@ -50,9 +51,9 @@
   end
 
   def refuse
-    @booking = Booking.find(params[:booking_id])
-    @booking.status = false
-    if @booking.update(booking_params)
+    @booking = Booking.find(params[:id])
+
+    if @booking.update(status: false)
       redirect_to booking_path(@booking)
     else
       render :show, status: :unprocessable_entity
@@ -67,7 +68,7 @@
 
   private
   def booking_params
-    params.require(:booking).permit(:begin_date, :end_date, :palace_id)
+    params.require(:booking).permit(:begin_date, :end_date, :palace_id, :booking_id)
   end
 
   def set_booking
