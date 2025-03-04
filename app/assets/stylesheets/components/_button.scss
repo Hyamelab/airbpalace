@@ -1,0 +1,18 @@
+.button-primary {
+  display: inline-block;
+  padding: 12px 24px;
+  margin-top: 8px;
+  margin-bottom: 25px;
+  color: white;
+  background-color: #ADE8F4;
+  border-radius: 8px;
+  text-align: center;
+  text-decoration: none;
+}
+
+.button-primary:hover {
+  background-color: #ffffff;
+  color:#ADE8F4;
+  transform: scale(1.05);
+  border: #ADE8F4 solid;
+}
