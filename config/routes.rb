@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   resources :palaces do
     resources :bookings, only: [:new, :create]
   end
+  get "/dashboard/palaces", to: "pages#palaces"
+  get "/dashboard/bookings", to: "pages#bookings"
   #   resources :bookings, only: [:update, :edit, :show, :index, :cancel]
 
 
