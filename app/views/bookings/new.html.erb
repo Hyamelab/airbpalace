@@ -1,0 +1,11 @@
+<div class="container">
+    <div class="col">
+      <p class="text-center"><strong>Book the palace!</strong></p>
+      <%= simple_form_for([@palace, @booking]) do |f| %>
+        <%= f.input :begin_date%>
+        <%= f.input :end_date%>
+        <%= f.submit "Send the booking request!", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  <%# <div><%= link_to "Back", palace_path(@palace), class: "btn btn-ghost"%>
+</div>

@@ -9,19 +9,20 @@
 #   def show
 #   end
 
-#   def new
-#     @booking = Booking.new
-#   end
+  def new
+    @palace = Palace.find(params[:palace_id])
+    @booking = Booking.new
+  end
 
-#   def create
-#     @booking = Booking.new(booking_params)
-#     @booking.user = current_user
-#     if @booking.save!
-#       redirect_to booking_path(@booking)
-#     else
-#       render :new, status: :unprocessable_entity
-#     end
-#   end
+  def create
+    @booking = Booking.new(booking_params)
+    @booking.user = current_user
+    if @booking.save!
+      redirect_to booking_path(@booking)
+    else
+      render :new, status: :unprocessable_entity
+    end
+  end
 
 #   def edit
 #   end
@@ -37,10 +38,10 @@
 #     redirect_to bookings_path
 #   end
 
-#   private
-#   def booking_params
-#     params.require(:booking).permit(:price, :begin_date, :end_date)
-#   end
+  private
+  def booking_params
+    params.require(:booking).permit(:price, :begin_date, :end_date, :palace_id)
+  end
 
 #   def set_booking
 #     @booking = Booking.find(params[:id])

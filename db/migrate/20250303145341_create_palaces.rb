@@ -4,6 +4,7 @@ class CreatePalaces < ActiveRecord::Migration[7.1]
       t.string :name
       t.text :description
       t.string :address
+      t.float :price
       t.references :user, null: false, foreign_key: true
 
       t.timestamps
