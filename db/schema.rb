@@ -17,9 +17,8 @@ ActiveRecord::Schema[7.1].define(version: 2025_03_03_145636) do
   create_table "bookings", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "palace_id", null: false
-    t.float "price"
-    t.string "begin_date"
-    t.string "end_date"
+    t.datetime "begin_date"
+    t.datetime "end_date"
     t.boolean "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -31,6 +30,7 @@ ActiveRecord::Schema[7.1].define(version: 2025_03_03_145636) do
     t.string "name"
     t.text "description"
     t.string "address"
+    t.float "price"
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

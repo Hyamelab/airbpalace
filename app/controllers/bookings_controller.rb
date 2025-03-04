@@ -10,8 +10,8 @@
 #   end
 
   def new
-    @booking = Booking.new
     @palace = Palace.find(params[:palace_id])
+    @booking = Booking.new
   end
 
   def create
