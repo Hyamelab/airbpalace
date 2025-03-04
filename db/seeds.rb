@@ -13,6 +13,7 @@ User.destroy_all
 puts "les user sont detruits"
 
 user1 = User.create!(first_name: "bob", last_name: "yes", email: "bob.yes@gmail.com", password: "testdemdp")
+user2 = User.create!(first_name: "hya", last_name: "aubert", email: "hya@gmail.com", password: "testdemdp")
 puts "les user sont crées"
 
 puts "les palaces sont détruits"
@@ -31,4 +32,3 @@ palace3.save!
 
 puts "les palaces sont crées"
 puts "yes"
-

@@ -32,7 +32,7 @@ class PalacesController < ApplicationController
    if @palace.update(palace_params)
     redirect_to palace_path(@palace)
    else
-    render :new, status: :unprocessable_entity
+    render :edit, status: :unprocessable_entity
    end
   end
 

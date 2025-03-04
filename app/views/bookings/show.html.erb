@@ -1,0 +1,13 @@
+<div class="container">
+  <div class="col">
+    <h1>Booking <%= @booking.palace.name %></h1>
+    <p><%= @booking.begin_date %></p>
+    <p><%= @booking.end_date %></p>
+    <% if @booking.user == current_user %>
+      <%= link_to "Edit the booking", edit_booking_path(@booking), class: "btn btn-ghost"%>
+    <% else %>
+      <%= link_to "Accept the booking", accept_booking_path(@booking), class: "btn btn-ghost", data: { turbo_method: :patch } %>
+      <%= link_to "Refuse the booking", refuse_booking_path(@booking), class: "btn btn-ghost", data: { turbo_method: :patch } %>
+    <% end %>
+  </div>
+</div>
