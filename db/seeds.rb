@@ -9,6 +9,7 @@
 #   end
 
 Palace.destroy_all
+Booking.destroy_all
 User.destroy_all
 puts "les user sont detruits"
 
@@ -29,6 +30,11 @@ palace2.save!
 palace3 = Palace.new(name: "Le Meurice", description: "Alliant luxe et art, Le Meurice est un palace emblématique situé face au Jardin des Tuileries.", address: "228 Rue de Rivoli, 75001 Paris, France", price: "2500€/nuit")
 palace3.user = user1
 palace3.save!
-
 puts "les palaces sont crées"
+
+puts "les bookings sont crées"
+Booking.create(user: user2, palace: palace1, begin_date: Date.current, end_date: Date.current + 30.days)
+Booking.create(user: user2, palace: palace2, begin_date: Date.current, end_date: Date.current + 30.days)
+
+
 puts "yes"
