@@ -32,6 +32,7 @@
   end
 
   def update
+    @booking.status = nil
     if @booking.update(booking_params)
       redirect_to booking_path(@booking), notice: 'Booking updated successfully!'
     else
