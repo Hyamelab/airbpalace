@@ -5,8 +5,9 @@
 </div>
 <div class='container'>
 <div class= 'titre'>
-<div class= 'price'>
+
 <h2 class = "text-start"> <%= @palace.name %></h2>
+<% if @palace.user != current_user %>
     <div class="booking-form-container">
       <strong><p class = 'text-align'><%= @palace.price %>€</strong> par nuit</p>
       <%= simple_form_for [@palace, @booking],
@@ -16,7 +17,7 @@
         <%= f.submit "Book!", class: "button-card" %>
       <% end %>
     </div>
-</div>
+<% end %>
 <p class = 'text-bg-primary" style="width: 6rem;'> <em>The address of the palace is <%= @palace.address %></em></p>
 
 <br>
