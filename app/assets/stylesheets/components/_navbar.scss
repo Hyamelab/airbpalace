@@ -6,6 +6,7 @@
   height: 130px;
   text-decoration: none;
   color: black;
+  padding: 0.5rem 1rem;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -16,16 +17,30 @@
   width: 40px;
 }
 
-// .custom-btn {
-//   padding: 12px 20px;
-//   border-radius: 8px;
-//   color: #fff;
-//   border: #00b4d8;
-//   font-size: 16px;
-//   text-align: center;
-//   display: inline-block;
-//   text-decoration: none;
-// }
+.navbar-top {
+  padding: 0.5rem 0; 
+}
+
+.middle-div {
+  font-size: 0.9rem; /* Réduit la taille de police pour la partie "MY PALACES | MY BOOKINGS" */
+}
+
+.navbar-toggler {
+  padding: 0.25rem 0.5rem; /* Réduit la taille du bouton de la navbar */
+}
+
+.navbar-brand i {
+  font-size: 1.5rem; /* Réduit la taille de l'icône du logo */
+}
+
+.navbar-nav .nav-item {
+  margin: 0 0.5rem; /* Réduit l'espace entre les éléments de la navbar */
+}
+
+.avatar {
+  width: 30px; /* Réduit la taille de l'avatar */
+  height: 30px;
+}
 
 .middle-div a{
   text-decoration: none;
