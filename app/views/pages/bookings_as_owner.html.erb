@@ -1,12 +1,106 @@
+<%= render 'shared/navbar' %>
 
-<h2>Bookings (as owner)</h2>
+<div class="container mt-5">
+    <div class="onglets d-flex justify-content-md-center pb-5">
+    <%= link_to "Voir", dashboard_palaces_path, class: "mx-3"%>
+    <%= link_to "Gérer mes réservations", dashboard_bookings_as_owner_path, class: "mx-3"%>
+  </div>
 
-<% @bookings_as_owner.each do |booking| %>
-  <div>
-    <div>Start Date: <%= booking.begin_date %></div>
-    <div>End Date: <%= booking.end_date %></div>
-    <div>Palace: <%= booking.palace.name %></div>
-    <div>Visitor: <%= booking.user.first_name %></div>
-    <%= link_to "See booking details", booking_path(booking), class: "button-primary" %>
-  <div>
-<% end %>
+  <div class="my-5">
+    <h2>Manage my future bookings</h2>
+    <div class="row gx-3">
+      <% if @manager_future_bookings.empty? %>
+        <div class="card" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title">Up-to-date!</h5>
+          </div>
+        </div>
+      <% else %>
+        <% @manager_future_bookings.each do |booking| %>
+          <div class="col-3">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title"><%= booking.palace.name %></h5>
+                <p class="card-text">Visitor: <%= booking.user.first_name %></p>
+                <p class="card-text">Start Date: <%= booking.begin_date.strftime("%-d %B %Y") %></p>
+                <p class="card-text">End Date: <%= booking.end_date.strftime("%-d %B %Y") %></p>
+                <% if booking.status == nil %>
+                  <p class="card-text">Status: Pending</p>
+                <% elsif booking.status == true %>
+                  <p class="card-text">Status: Confirmed</p>
+                <% else %>
+                  <p class="card-text">Status: Denied</p>
+                <% end %>
+              </div>
+              <%= link_to "See booking details", booking_path(booking), class: "button-primary" %>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+
+   <div class="my-5">
+    <h2>History of past bookings</h2>
+    <div class="row gx-3">
+      <% if @manager_past_bookings.empty? %>
+        <div class="card" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title">No booking here yet!</h5>
+          </div>
+        </div>
+      <% else %>
+        <% @manager_past_bookings.each do |booking| %>
+          <div class="col-3">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title"><%= booking.palace.name %></h5>
+                <p class="card-text">Visitor <%= booking.user.first_name %></p>
+                <p class="card-text">Start Date: <%= booking.begin_date.strftime("%-d %B %Y") %></p>
+                <p class="card-text">End Date: <%= booking.end_date.strftime("%-d %B %Y") %></p>
+                <% if booking.status == false %>
+                  <p class="card-text">Status: Pending</p>
+                <% else %>
+                  <p class="card-text">Status: Confirmed</p>
+                <% end %>
+              </div>
+            <%= link_to "See booking details", booking_path(booking), class: "button-primary" %>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="my-5">
+    <h2>History of cancelled bookings</h2>
+    <div class="row gx-3">
+      <% if @manager_cancelled_bookings.empty? %>
+        <div class="card" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title">No booking here yet!</h5>
+          </div>
+        </div>
+      <% else %>
+        <% @manager_cancelled_bookings.each do |booking| %>
+          <div class="col-3">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title"><%= booking.palace.name %></h5>
+                <p class="card-text">Visitor <%= booking.user.first_name %></p>
+                <p class="card-text">Start Date: <%= booking.begin_date.strftime("%-d %B %Y") %></p>
+                <p class="card-text">End Date: <%= booking.end_date.strftime("%-d %B %Y") %></p>
+                <% if booking.status == false %>
+                  <p class="card-text">Status: Pending</p>
+                <% else %>
+                  <p class="card-text">Status: Confirmed</p>
+                <% end %>
+              </div>
+            <%= link_to "See booking details", booking_path(booking), class: "button-primary" %>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
