@@ -1,10 +1,15 @@
 <%= render 'shared/navbar' %>
 
+
 <div class="container mt-5">
 
   <div class="onglets d-flex justify-content-md-center pb-5">
     <%= link_to "Voir", dashboard_palaces_path, class: "mx-3"%>
     <%= link_to "Gérer mes réservations", dashboard_bookings_as_owner_path, class: "mx-3"%>
+  </div>
+
+  <div class="d-flex justify-content-end p-2 pe-5">
+    <%= link_to "+ Add a new palace", new_palace_path, class:"button-card"%>
   </div>
 
 <div class="container mt-5">

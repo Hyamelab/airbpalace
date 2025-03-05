@@ -32,6 +32,10 @@ palace3.user = user1
 palace3.save!
 puts "les palaces sont crées"
 
+palace4 = Palace.new(name: "Palace Étoile", description: "Un joyau d'élégance au cœur de Paris, offrant un service inégalé et une vue imprenable sur la Tour Eiffel.", address: "10 Avenue des Champs-Élysées, 75008 Paris, France", price: "3200")
+palace4.user = user2
+palace4.save!
+
 puts "les bookings sont crées"
 Booking.create(user: user2, palace: palace1, begin_date: Date.current, end_date: Date.current + 30.days)
 Booking.create(user: user2, palace: palace2, begin_date: Date.current, end_date: Date.current + 30.days)
