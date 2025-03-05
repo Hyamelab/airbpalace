@@ -22,7 +22,7 @@
     @booking.palace = @palace
 
     if @booking.save
-      redirect_to palace_path(@palace)
+      redirect_to booking_path(@booking)
     else
       render :new, status: :unprocessable_entity
     end
