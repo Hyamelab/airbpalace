@@ -2,13 +2,15 @@
   background-image: url('https://cdn.lecollectionist.com/__lecollectionist__/production/houses/7336/photos/Yz13vnLwSjG3i5F4VdpC_0c03f529-5d68-40c4-b964-c19b8d16c019.jpg?width=2880&q=65');
   background-size: cover;
   background-position: center;
-  height: 50vh;
+  height: 500px;
   display: flex;
   justify-content: center;
   align-items: center;
   color: white;
   text-align: center;
   margin-bottom: 20px;
+  position: relative;
+
 }
 
 .border-test {
@@ -49,3 +51,13 @@
   align-items: center;
 }
 
+.booking-form-container {
+ position: absolute;
+ bottom: -100px;
+ background-color: #f9f7f3 ;
+ right: 5px;
+ width: 300px;
+ padding: 20px;
+ border-radius: 10px;
+ box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}

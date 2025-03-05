@@ -7,7 +7,15 @@
 <div class= 'titre'>
 <div class= 'price'>
 <h2 class = "text-start"> <%= @palace.name %></h2>
-<p class = 'text-align'><%= @palace.price %>€ / nuit</p>
+    <div class="booking-form-container">
+      <strong><p class = 'text-align'><%= @palace.price %>€ / nuit</p></strong>
+      <%= simple_form_for [@palace, @booking],
+        html: {data: { controller: 'flatpickr' } } do |f| %>
+        <%= f.input :begin_date, as: :string, input_html: { data: { flatpickr_target: 'startDateInput', } } %>
+        <%= f.input :end_date, as: :string, input_html: { data: { flatpickr_target: 'endDateInput' } } %>
+        <%= f.submit "Book!", class: "button-card" %>
+      <% end %>
+    </div>
 </div>
 <p class = 'text-bg-primary" style="width: 6rem;'> <em>The address of the palace is <%= @palace.address %></em></p>
 
