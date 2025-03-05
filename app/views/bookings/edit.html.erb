@@ -3,10 +3,15 @@
       <p class="text-center"><strong>Update your booking</strong></p>
       <%= simple_form_for [@palace, @booking],
         html: {data: { controller: 'flatpickr' } } do |f| %>
+         <!-- Date de début -->
         <%= f.input :begin_date, as: :string, input_html: { data: { flatpickr_target: 'startDateInput', } } %>
+            <!-- Date de fin -->
         <%= f.input :end_date, as: :string, input_html: { data: { flatpickr_target: 'endDateInput' } } %>
-        <%= f.submit "Send the booking request!", class: "btn btn-primary" %>
+
+        <!-- Bouton pour soumettre -->
+        <%= f.submit "Update the booking request!", class: "btn btn-primary" %>
       <% end %>
+      <%= link_to "Back to booking details", booking_path(@booking), class: "btn btn-secondary" %>
     </div>
   <%# <div><%= link_to "Back", palace_path(@palace), class: "btn btn-ghost"%>
 </div>
