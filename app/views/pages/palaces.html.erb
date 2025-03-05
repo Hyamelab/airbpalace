@@ -7,6 +7,10 @@
     <%= link_to "Gérer mes réservations", dashboard_bookings_as_owner_path, class: "mx-3"%>
   </div>
 
+  <div class="d-flex justify-content-end p-2 pe-5">
+    <%= link_to "+ Add a new palace", new_palace_path, class:"button-card"%>
+  </div>
+
 <div class="container mt-5">
   <div class="row justify-content-evenly g-3">
     <% @palaces.each do |palace| %>
