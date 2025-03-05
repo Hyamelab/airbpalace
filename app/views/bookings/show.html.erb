@@ -20,18 +20,16 @@
 
     <% if @booking.user == current_user %>
       <%= link_to "Edit the booking", edit_booking_path(@booking), class: "button-card"%>
+      <%= link_to "Back to my bookings", dashboard_bookings_as_visitor_path, class: "btn btn-secondary" %>
     <% elsif current_user == @booking.palace.user %>
       <% if @booking.status == nil %>
         <%= link_to "Accept the booking", accept_booking_path(@booking), class: "btn btn-success", data: { turbo_method: :patch } %>
         <%= link_to "Refuse the booking", refuse_booking_path(@booking), class: "btn btn-danger", data: { turbo_method: :patch } %>
-
-      <% end %>
-    <% end %>
-    <%= link_to "Back to my bookings", dashbord_bookings_as_visitor_path, class: "btn btn-secondary" %>
-
-
+        <%= link_to "Back to my bookings", dashboard_bookings_as_owner_path, class: "btn btn-secondary" %>
       <% end %>
     <% end %>
 
 
 
+  </div>
+</div>
