@@ -2,6 +2,11 @@
 
 <div class="container mt-5">
 
+<div class="onglets d-flex justify-content-md-center">
+  <%= link_to "Voir", dashboard_palaces_path%> |
+  <%= link_to "Gérer mes réservations", dashboard_bookings_as_owner_path %>
+</div>
+
   <div class="row justify-content-evenly g-3">
     <% @palaces.each do |palace| %>
       <div class="card" style="width: 18rem;">
@@ -15,4 +20,3 @@
     <% end %>
   </div>
 </div>
-

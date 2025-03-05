@@ -10,8 +10,10 @@ Rails.application.routes.draw do
 
     resources :bookings, only: [:new, :create]
   end
+
   get "/dashboard/palaces", to: "pages#palaces"
-  get "/dashboard/bookings", to: "pages#bookings"
+  get "/dashboard/bookings_as_visitor", to: "pages#bookings_as_visitor"
+  get "/dashboard/bookings_as_owner", to: "pages#bookings_as_owner"
   #   resources :bookings, only: [:update, :edit, :show, :index, :cancel]
 
   resources :bookings, only: [:update, :edit, :show, :index] do
