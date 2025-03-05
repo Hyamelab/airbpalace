@@ -3,7 +3,7 @@
   background: #f9f7f3;
   border-bottom: 0.1rem solid;
   border-color: #ADE8F4;
-  height: 130px;
+  height: 100px;
   text-decoration: none;
   color: black;
   padding: 0.5rem 1rem;
@@ -18,28 +18,7 @@
 }
 
 .navbar-top {
-  padding: 0.5rem 0; 
-}
-
-.middle-div {
-  font-size: 0.9rem; /* Réduit la taille de police pour la partie "MY PALACES | MY BOOKINGS" */
-}
-
-.navbar-toggler {
-  padding: 0.25rem 0.5rem; /* Réduit la taille du bouton de la navbar */
-}
-
-.navbar-brand i {
-  font-size: 1.5rem; /* Réduit la taille de l'icône du logo */
-}
-
-.navbar-nav .nav-item {
-  margin: 0 0.5rem; /* Réduit l'espace entre les éléments de la navbar */
-}
-
-.avatar {
-  width: 30px; /* Réduit la taille de l'avatar */
-  height: 30px;
+  padding: 0.5rem 0;
 }
 
 .middle-div a{
