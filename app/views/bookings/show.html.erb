@@ -9,14 +9,23 @@
     <p><strong>Address:</strong> <%= @booking.palace.address %></p>
     <p><strong>Description:</strong> <%= @booking.palace.description %></p>
     <p><strong>Price:</strong> <%= @booking.palace.price %>€</p>
+     <p><strong>status:</strong> <%= @booking.status %></p>
+
 
     <% if @booking.user == current_user %>
       <%= link_to "Edit the booking", edit_booking_path(@booking), class: "btn btn-primary"%>
-       <% elsif @booking.palace.user == current_user %>
-    <% else %>
-      <%= link_to "Accept the booking", accept_booking_path(@booking), class: "btn btn-success", data: { turbo_method: :patch } %>
-      <%= link_to "Refuse the booking", refuse_booking_path(@booking), class: "btn btn-danger", data: { turbo_method: :patch } %>
+    <% elsif current_user == @booking.palace.user %>
+      <% if @booking.status == nil %>
+        <%= link_to "Accept the booking", accept_booking_path(@booking), class: "btn btn-success", data: { turbo_method: :patch } %>
+        <%= link_to "Refuse the booking", refuse_booking_path(@booking), class: "btn btn-danger", data: { turbo_method: :patch } %>
+      
+
+      <% end %>
     <% end %>
+
+
+
+
     <%= link_to "Back to my bookings", bookings_path, class: "btn btn-secondary" %>
   </div>
   </div>
