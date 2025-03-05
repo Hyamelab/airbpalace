@@ -23,10 +23,9 @@
       <div class="card" style="width: 18rem;">
         <img src="https://cdn.lecollectionist.com/__lecollectionist__/production/houses/7336/photos/Yz13vnLwSjG3i5F4VdpC_0c03f529-5d68-40c4-b964-c19b8d16c019.jpg?width=2880&q=65" class="card-img-top" style="object-fit: contain;" alt="...">
         <div class="card-body">
-          <h5 class="card-title"><%= palace.name %></h5>
-          <p class="card-text"><%= palace.description %></p>
-          <p class="card-text"><%= palace.address %></p>
-          <%= link_to "See the palace", palace_path(palace), class:"button-primary"%>
+          <h5 class="card-title"><strong><%= palace.name %></strong></h5>
+          <p class="card-text"><em><%= palace.address %></em></p>
+          <%= link_to "See the palace", palace_path(palace), class:"button-card"%>
         </div>
       </div>
     <% end %>
