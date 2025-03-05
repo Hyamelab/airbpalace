@@ -1,0 +1,11 @@
+
+<h2>Bookings (as owner)</h2>
+
+<% @bookings_as_owner.each do |booking| %>
+  <div>
+    <div>Start Date: <%= booking.begin_date %></div>
+    <div>End Date: <%= booking.end_date %></div>
+    <div>Palace: <%= booking.palace.name %></div>
+    <div>Visitor: <%= booking.user.first_name %></div>
+  <div>
+<% end %>
