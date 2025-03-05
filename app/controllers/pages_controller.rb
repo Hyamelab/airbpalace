@@ -16,7 +16,9 @@ class PagesController < ApplicationController
   end
 
   def bookings_as_owner
-    @bookings_as_owner = current_user.bookings_as_owner
+    @manager_past_bookings = current_user.bookings_as_owner.where("end_date < ?", Date.current)
+    @manager_future_bookings = current_user.bookings_as_owner.where("begin_date > ?", Date.current)
+    @manager_cancelled_bookings = current_user.bookings_as_owner.where(status: false)
   end
 
   # def mybookings
