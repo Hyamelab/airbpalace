@@ -8,7 +8,7 @@
 <div class= 'price'>
 <h2 class = "text-start"> <%= @palace.name %></h2>
     <div class="booking-form-container">
-      <strong><p class = 'text-align'><%= @palace.price %>€ / nuit</p></strong>
+      <strong><p class = 'text-align'><%= @palace.price %>€</strong> par nuit</p>
       <%= simple_form_for [@palace, @booking],
         html: {data: { controller: 'flatpickr' } } do |f| %>
         <%= f.input :begin_date, as: :string, input_html: { data: { flatpickr_target: 'startDateInput', } } %>
