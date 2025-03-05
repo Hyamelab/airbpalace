@@ -7,5 +7,6 @@
     <div>End Date: <%= booking.end_date %></div>
     <div>Palace: <%= booking.palace.name %></div>
     <div>Visitor: <%= booking.user.first_name %></div>
+    <%= link_to "See booking details", booking_path(booking), class: "button-primary" %>
   <div>
 <% end %>
