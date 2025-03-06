@@ -17,7 +17,7 @@
       <div class="col-6 col-md-3" style="margin-bottom: 1.5rem;">
 
         <%= link_to booking_path(booking), class: "card-link" do %>
-          <div class="card" style="width: 12rem; margin: auto; height: 18rem; overflow: hidden; border: none;">
+          <div class="card" style="width: 12rem; margin: auto; height: 18rem; overflow: hidden; border: none; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); transition: box-shadow 0.3s ease-in-out;">
 
             <img src="https://cdn.lecollectionist.com/__lecollectionist__/production/houses/7336/photos/Yz13vnLwSjG3i5F4VdpC_0c03f529-5d68-40c4-b964-c19b8d16c019.jpg?width=2880&q=65"
               class="card-img-top" style="object-fit: cover; height: 6rem; width: 100%;" alt="Image of <%= booking.palace.name %>">
@@ -54,10 +54,11 @@
 
 <div class="row gx-4">
   <% if @past_bookings.empty? %>
-    <div class="card" style="width: 12rem; margin: auto; height: 18rem; overflow: hidden; border: none;">
-      <div class="card-body" style="padding: 0.75rem;">
+    <div class="card" style="width: 12rem; margin: auto; height: 18rem; overflow: hidden; border: none; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); transition: box-shadow 0.3s ease-in-out;">
+      <div class="card-body d-flex justify-content-center" style="padding: 0.75rem;">
+      <div>
         <h5 class="card-title" style="font-size: 1rem; margin-bottom: 0.25rem;text-align: center;">No booking here yet!</h5>
-        <%= link_to "Check the palaces!", palaces_path, class: "button-primary btn-center" %>
+      </div>
       </div>
     </div>
   <% else %>
@@ -99,9 +100,9 @@
 </h2>
 <div class="row gx-4">
   <% if @cancelled_bookings.empty? %>
-    <div class="card" style="width: 15rem; margin: auto; height: 16rem; overflow: hidden;">
-      <div class="card-body" style="padding: 0.75rem;">
-        <h5 class="card-title" style="font-size: 1rem; margin-bottom: 0.5rem;">No booking here yet!</h5>
+    <div class="card" style="width: 12rem; margin: auto; height: 18rem; overflow: hidden; border: none; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); transition: box-shadow 0.3s ease-in-out;">
+      <div class="card-body d-flex justify-content-center" style="padding: 0.75rem;">
+        <h5 class="card-title" style="font-size: 1rem; margin-bottom: 0.25rem;text-align: center;">No booking here yet!</h5>
       </div>
     </div>
   <% else %>
@@ -124,7 +125,7 @@
               <% end %>
             </div>
           </div>
-        <% end %> 
+        <% end %>
       </div>
     <% end %>
   <% end %>
