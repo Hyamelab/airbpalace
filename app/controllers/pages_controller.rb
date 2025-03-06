@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  skip_before_action :authenticate_user!, only: :home
+  skip_before_action :authenticate_user!, only: [:home, :profil]
 
   def home
     @palaces = Palace.all
@@ -17,6 +17,10 @@ class PagesController < ApplicationController
 
   def bookings_as_owner
     @bookings_as_owner = current_user.bookings_as_owner
+  end
+
+  def profil
+    @user = current_user
   end
 
   # def mybookings
