@@ -22,4 +22,6 @@ Rails.application.routes.draw do
       patch "/refuse", to: "bookings#refuse"
     end
   end
+
+  get "/dashboard/profil", to: "pages#profil"
 end

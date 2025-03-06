@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  skip_before_action :authenticate_user!, only: :home
+  skip_before_action :authenticate_user!, only: [:home, :profil]
 
   def home
     @palaces = Palace.all
@@ -19,6 +19,10 @@ class PagesController < ApplicationController
     @manager_past_bookings = current_user.bookings_as_owner.where("end_date < ?", Date.current)
     @manager_future_bookings = current_user.bookings_as_owner.where("begin_date > ?", Date.current)
     @manager_cancelled_bookings = current_user.bookings_as_owner.where(status: false)
+  end
+
+  def profil
+    @user = current_user
   end
 
   # def mybookings
