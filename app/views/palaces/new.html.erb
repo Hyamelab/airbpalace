@@ -1,6 +1,32 @@
+<div class="container mt-5">
+<div class= "row">
+    <ul class="nav nav-tabs" >
+      <div class= "col-4">
+      <li class="nav-item flex-fill">
+        <%= link_to dashboard_palaces_path, class: "nav-link w-100" do %>
+            <div aria-current="page">SEE MY PALACES</div>
+        <% end %>
+      </li>
+      </div>
+      <div class = "col-4">
+      <li class="nav-item flex-fill">
+        <%= link_to dashboard_bookings_as_owner_path, class: "nav-link w-100" do %>
+            <div aria-current="page", >MANAGE THE BOOKING</div>
+        <% end %>
+        </li>
+        </div>
+        <div class= "col-4">
+      <li class="nav-item flex-fill">
+        <%= link_to new_palace_path, class: "nav-link active w-100" do %>
+        <div aria-current="page", >ADD A PALACE</div>
+      <% end %>
+      </li>
+        </div>
+      </ul>
+      </div>
 
-<div class="container">
-  <h1>Add a new palace</h1>
+<div class="container mt-5">
+  
 
   <%= simple_form_for(@palace) do |f| %>
     <%= f.input :name, label: "Name" %>
@@ -9,4 +35,5 @@
     <%= f.input :price, label: "Your Price" %>
     <%= f.submit "Submit", class: "btn btn-primary" %>
   <% end %>
+</div>
 </div>
