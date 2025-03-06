@@ -2,105 +2,133 @@
 
 <div class="container">
   <div class="my-5">
-    <h2>My future bookings</h2>
-    <div class="row gx-3">
-      <% if @future_bookings.empty? %>
-        <div class="card" style="width: 18rem;">
-          <div class="card-body">
-            <h5 class="card-title">No booking here yet!</h5>
-            <%= link_to "Check the palaces!", palaces_path, class: "button-primary" %>
-          </div>
-        </div>
-      <% else %>
-        <% @future_bookings.each do |booking| %>
-          <div class="col-3">
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title"><%= booking.palace.name %></h5>
-                <p class="card-text">Host: <%= booking.palace.user.last_name %></p>
-                <p class="card-text">Start Date: <%= booking.begin_date.strftime("%-d %B %Y") %></p>
-                <p class="card-text">End Date: <%= booking.end_date.strftime("%-d %B %Y") %></p>
-                <% if booking.status == nil %>
-                  <p class="card-text">Status: Pending</p>
-                <% elsif booking.status == true %>
-                  <p class="card-text">Status: Confirmed</p>
-                <% else %>
-                  <p class="card-text">Status: Denied</p>
-                <% end %>
-              </div>
-              <%= link_to "See booking details", booking_path(booking), class: "button-primary" %>
-            </div>
-          </div>
-        <% end %>
-      <% end %>
+    <h2 style="color: #000000; font-family: 'Arial', sans-serif; font-size: 26px; text-align: center; text-transform: uppercase; letter-spacing: 2px; border-bottom: 2px solid #000000; padding-bottom: 10px;">
+    My Future Bookings
+    </h2>
+  <div class="row gx-4">
+  <% if @future_bookings.empty? %>
+    <div class="card" style="width: 15rem; margin: auto; height: 16rem; overflow: hidden;">
+      <div class="card-body" style="padding: 0.75rem;">
+        <h5 class="card-title" style="font-size: 1rem; margin-bottom: 0.5rem;">No booking here yet!</h5>
+        <%= link_to "Check the palaces!", palaces_path, class: "button-primary btn-center", class: "button-card" %>
+      </div>
     </div>
-  </div>
+  <% else %>
+    <% @future_bookings.each do |booking| %>
+      <div class="col-6 col-md-3" style="margin-bottom: 1.5rem;">
 
-   <div class="my-5">
-    <h2>My past bookings</h2>
-    <div class="row gx-3">
-      <% if @past_bookings.empty? %>
-        <div class="card" style="width: 18rem;">
-          <div class="card-body">
-            <h5 class="card-title">No booking here yet!</h5>
-          </div>
-        </div>
-      <% else %>
-        <% @past_bookings.each do |booking| %>
-          <div class="col-3">
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title"><%= booking.palace.name %></h5>
-                <p class="card-text">Host: <%= booking.palace.user.last_name %></p>
-                <p class="card-text">Start Date: <%= booking.begin_date.strftime("%-d %B %Y") %></p>
-                <p class="card-text">End Date: <%= booking.end_date.strftime("%-d %B %Y") %></p>
-                <% if booking.status == nil %>
-                  <p class="card-text">Status: Pending</p>
-                <% elsif booking.status == true %>
-                  <p class="card-text">Status: Confirmed</p>
-                <% else %>
-                  <p class="card-text">Status: Denied</p>
-                <% end %>
-              </div>
-            <%= link_to "See booking details", booking_path(booking), class: "button-primary" %>
-            </div>
-          </div>
-        <% end %>
-      <% end %>
-    </div>
-  </div>
+        <%= link_to booking_path(booking), class: "card-link" do %>
+          <div class="card" style="width: 12rem; margin: auto; height: 18rem; overflow: hidden; border: none;">
 
-  <div class="my-5">
-    <h2>My cancelled bookings</h2>
-    <div class="row gx-3">
-      <% if @cancelled_bookings.empty? %>
-        <div class="card" style="width: 18rem;">
-          <div class="card-body">
-            <h5 class="card-title">No booking here yet!</h5>
-          </div>
-        </div>
-      <% else %>
-        <% @cancelled_bookings.each do |booking| %>
-          <div class="col-3">
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title"><%= booking.palace.name %></h5>
-                <p class="card-text">Host: <%= booking.palace.user.last_name %></p>
-                <p class="card-text">Start Date: <%= booking.begin_date.strftime("%-d %B %Y") %></p>
-                <p class="card-text">End Date: <%= booking.end_date.strftime("%-d %B %Y") %></p>
-                <% if booking.status == nil %>
-                  <p class="card-text">Status: Pending</p>
-                <% elsif booking.status == true %>
-                  <p class="card-text">Status: Confirmed</p>
-                <% else %>
-                  <p class="card-text">Status: Denied</p>
-                <% end %>
-              </div>
-            <%= link_to "See booking details", booking_path(booking), class: "button-primary" %>
+            <img src="https://cdn.lecollectionist.com/__lecollectionist__/production/houses/7336/photos/Yz13vnLwSjG3i5F4VdpC_0c03f529-5d68-40c4-b964-c19b8d16c019.jpg?width=2880&q=65"
+              class="card-img-top" style="object-fit: cover; height: 6rem; width: 100%;" alt="Image of <%= booking.palace.name %>">
+
+            <div class="card-body" style="padding: 0.5rem; height: 8rem;">
+
+              <h5 class="card-title card-title-test" style="font-size: 1rem; margin-bottom: 0.25rem;"><strong><%= booking.palace.name %></strong></h5>
+
+              <p class="card-text" style="font-size: 0.75rem; margin-bottom: 0.5rem;"><em><%= booking.palace.address %></em></p>
+
+              <p class="card-text" style="font-size: 0.75rem; margin-bottom: 0.25rem;">Start Date: <%= booking.begin_date.strftime("%-d %B %Y") %></p>
+              <p class="card-text" style="font-size: 0.75rem; margin-bottom: 0.25rem;">End Date: <%= booking.end_date.strftime("%-d %B %Y") %></p>
+
+              <% if booking.status == nil %>
+                <p class="card-text" style="font-size: 0.75rem; margin-bottom: 0.25rem;">Status: Pending</p>
+              <% elsif booking.status == true %>
+                <p class="card-text" style="font-size: 0.75rem; margin-bottom: 0.25rem;">Status: Confirmed</p>
+              <% else %>
+                <p class="card-text" style="font-size: 0.75rem; margin-bottom: 0.25rem;">Status: Denied</p>
+              <% end %>
             </div>
           </div>
         <% end %>
-      <% end %>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+
+<div class="my-5"></div>
+
+    <h2 style="color: #000000; font-family: 'Arial', sans-serif; font-size: 26px; text-align: center; text-transform: uppercase; letter-spacing: 2px; border-bottom: 2px solid #000000; padding-bottom: 10px;">
+  My Past Bookings
+</h2>
+
+<div class="row gx-4">
+  <% if @past_bookings.empty? %>
+    <div class="card" style="width: 12rem; margin: auto; height: 18rem; overflow: hidden; border: none;">
+      <div class="card-body" style="padding: 0.75rem;">
+        <h5 class="card-title" style="font-size: 1rem; margin-bottom: 0.25rem;text-align: center;">No booking here yet!</h5>
+        <%= link_to "Check the palaces!", palaces_path, class: "button-primary btn-center" %>
+      </div>
     </div>
-  </div>
+  <% else %>
+    <% @past_bookings.first(7).each do |booking| %>
+      <div class="col-6 col-md-3" style="margin-bottom: 1.5rem; text-align: left;">
+
+        <%= link_to booking_path(booking), class: "card-link" do %>
+          <div class="card" style="width: 12rem; margin: auto; height: 18rem; overflow: hidden; border: none;">
+            <div class="card-body" style="padding: 0.75rem; height: 18rem; display: flex; flex-direction: column; justify-content: space-between;">
+
+              <h5 class="card-title card-title-test" style="font-size: 1rem; margin-bottom: 0.25rem; font-weight: bold;"><%= booking.palace.name %></h5>
+
+              <p class="card-text" style="font-size: 0.75rem; margin-bottom: 0.5rem; font-style: italic;"><%= booking.palace.address %></p>
+
+              <p class="card-text" style="font-size: 0.75rem; margin-bottom: 0.25rem;">Start Date: <%= booking.begin_date.strftime("%-d %B %Y") %></p>
+              <p class="card-text" style="font-size: 0.75rem; margin-bottom: 0.25rem;">End Date: <%= booking.end_date.strftime("%-d %B %Y") %></p>
+
+              <% if booking.status == nil %>
+                <p class="card-text" style="font-size: 0.75rem; margin-bottom: 0.25rem;">Status: Pending</p>
+              <% elsif booking.status == true %>
+                <p class="card-text" style="font-size: 0.75rem; margin-bottom: 0.25rem;">Status: Confirmed</p>
+              <% else %>
+                <p class="card-text" style="font-size: 0.75rem; margin-bottom: 0.25rem;">Status: Denied</p>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+<div class="my-5"></div>
+
+</div>
+
+
+  <h2 style="color: #000000; font-family: 'Arial', sans-serif; font-size: 26px; text-align: center; text-transform: uppercase; letter-spacing: 2px; border-bottom: 2px solid #000000; padding-bottom: 10px;">
+  My Canceled Bookings
+</h2>
+<div class="row gx-4">
+  <% if @cancelled_bookings.empty? %>
+    <div class="card" style="width: 15rem; margin: auto; height: 16rem; overflow: hidden;">
+      <div class="card-body" style="padding: 0.75rem;">
+        <h5 class="card-title" style="font-size: 1rem; margin-bottom: 0.5rem;">No booking here yet!</h5>
+      </div>
+    </div>
+  <% else %>
+    <% @cancelled_bookings.each do |booking| %>
+      <div class="col-3">
+
+        <%= link_to booking_path(booking), class: "card-link" do %>
+          <div class="card">
+            <div class="card-body" style="padding: 0.75rem;">
+               <h5 class="card-title card-title-test" style="font-size: 1rem; margin-bottom: 0.25rem; font-weight: bold;"><%= booking.palace.name %></h5>
+              <p class="card-text" style="font-size: 0.75rem; margin-bottom: 0.25rem;">Host: <%= booking.palace.user.last_name %></p>
+              <p class="card-text" style="font-size: 0.75rem; margin-bottom: 0.25rem;">Start Date: <%= booking.begin_date.strftime("%-d %B %Y") %></p>
+              <p class="card-text" style="font-size: 0.75rem; margin-bottom: 0.25rem;">End Date: <%= booking.end_date.strftime("%-d %B %Y") %></p>
+              <% if booking.status == nil %>
+                <p class="card-text" style="font-size: 0.75rem; margin-bottom: 0.25rem;">Status: Pending</p>
+              <% elsif booking.status == true %>
+                 <p class="card-text" style="font-size: 0.75rem; margin-bottom: 0.25rem;">Status: Confirmed</p>
+              <% else %>
+                <p class="card-text" style="font-size: 0.75rem; margin-bottom: 0.25rem;">Status: Denied</p>
+              <% end %>
+            </div>
+          </div>
+        <% end %> 
+      </div>
+    <% end %>
+  <% end %>
+</div>
+<div class="my-5"></div>
 </div>
