@@ -16,14 +16,17 @@
 .nav-tabs .nav-link {
   text-align: center; /* Centrer le texte */
   width: 100%; /* Assurer la largeur pleine des liens */
-  color: #0096C7;
+  color: #ADE8F4;
 }
 
-.nav-tabs .nav-link:active {
-  color: #0096C7;
+.nav-tabs .nav-link.active {
+  color: #0096C7 !important;
 }
 
 .wrapper {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+}
+.nav-tabs .nav-link:hover {
+  color: #0096C7;
 }
