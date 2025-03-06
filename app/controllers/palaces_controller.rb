@@ -13,6 +13,16 @@ class PalacesController < ApplicationController
   def show
     @palace = Palace.find(params[:id])
     @booking = Booking.new
+
+    if @palace.geocoded?
+      @marker = {
+        lat: @palace.latitude,
+        lng: @palace.longitude,
+        marker_html: render_to_string(partial: "marker")
+      }
+    end
+    puts "le marker doit etre"
+    puts @marker
   end
 
   def new
