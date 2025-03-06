@@ -1,10 +1,10 @@
 <div class="container mt-4">
   <h3>Informations de l'utilisateur</h3>
 
-  <p><strong>Prénom :</strong> <%@user.first_name%></p>
-  <p><strong>Nom :</strong><%@user.last_name%></p>
-  <p><strong>Email :</strong><%@user.email%></p>
-  <p><strong>Mot de passe :</strong> **********</p>
+  <p><strong>Prénom :</strong> <%= @user.first_name %></p>
+  <p><strong>Nom : </strong><%= @user.last_name %></p>
+  <p><strong>Email : </strong><%= @user.email %></p>
+  <p><strong>Mot de passe : </strong> **********</p>
 
   <%= link_to "Edit my account",  edit_user_registration_path, class: "button-primary" %>
 </div>
