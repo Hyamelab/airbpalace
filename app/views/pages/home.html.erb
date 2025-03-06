@@ -6,10 +6,17 @@
         <h3>Louez votre palace de rêve pour vos vacances</h3>
       <div class="wrap-bottom mt-5 mb-2">
         <div class="navbar-bottom w-100 d-flex justify-content-center">
-          <form class="d-flex" role="search">
-            <input class="recherche me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="button-search" type="submit">Search</button>
-          </form>
+       <%= form_with url: root_path, method: :get, class: "d-flex position-relative" do %>
+        <%= text_field_tag :query,
+          params[:query],
+          class: "form-control",
+          placeholder: "Search a palace"
+        %>
+          <%=link_to root_path do %>
+          <i class="cross fa-solid fa-xmark"></i>
+          <% end %>
+        <%= submit_tag "Search", class: "btn btn-primary" %>
+      <% end %>
         </div>
       </div>
       </div>
