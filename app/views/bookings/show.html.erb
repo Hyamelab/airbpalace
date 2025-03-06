@@ -1,32 +1,75 @@
-<div class="container">
-  <div class="col">
-    <h1>My bookings <%= @booking.palace.name %></h1>
-    <p><strong>Start :</strong><%= @booking.begin_date.strftime("%-d %B %Y") %></p>
-    <p><strong>End :</strong><%= @booking.end_date.strftime("%-d %B %Y") %></p>
-     <p><strong>Booked by :</strong> <%= @booking.user.email %></p>
-
-    <p><strong>Palace Name:</strong> <%= @booking.palace.name %></p>
-    <p><strong>Address:</strong> <%= @booking.palace.address %></p>
-    <p><strong>Description:</strong> <%= @booking.palace.description %></p>
-    <p><strong>Price:</strong> <%= @booking.palace.price %>€</p>
-      <% if @booking.status == nil %>
-     <p><strong>status:</strong> Pending</p>
-     <% elsif @booking.status == false %>
-      <p><strong>status:</strong> Refused</p>
-       <% else @booking.status == true %>
-      <p><strong>status:</strong> Confirmed</p>
-      <% end %>
+<div class="container-fluid" style="padding: 0;">
 
 
-    <% if @booking.user == current_user %>
-      <%= link_to "Edit the booking", edit_booking_path(@booking), class: "button-card"%>
-      <%= link_to "Back to my bookings", dashboard_bookings_as_visitor_path, class: "btn btn-secondary" %>
-    <% elsif current_user == @booking.palace.user %>
-      <% if @booking.status == nil %>
-        <%= link_to "Accept the booking", accept_booking_path(@booking), class: "btn btn-success", data: { turbo_method: :patch } %>
-        <%= link_to "Refuse the booking", refuse_booking_path(@booking), class: "btn btn-danger", data: { turbo_method: :patch } %>
-      <% end %>
-      <%= link_to "Back to my bookings", dashboard_bookings_as_owner_path, class: "btn btn-secondary" %>
-    <% end %>
+  <div class="image-container" style="width: 100%; height: 300px; background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSp-uMmCBkYyEruI6VlleOWgMAHc43IiXH4mQ&s'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+
+    <div class="d-flex justify-content-center align-items-center h-100" style="background: rgba(0, 0, 0, 0.5);">
+     <h1 class="text-white font-weight-bold" style="font-family: 'Arial', sans-serif; font-size: 4rem; font-weight: bold;">
+  <strong>My Booking Details</strong>
+</h1>
+</div>
+  </div>
+
+
+  <div class="container py-5">
+    <div class="text-center mb-5">
+      <h2 class="display-5" style="color: #0096C7; font-weight: bold; font-family: 'Arial', sans-serif; text-align: center; font-size: 2.5rem;">
+  <%= @booking.palace.name %>
+</h2>
+<p class="lead text-muted" style="font-family: 'Arial', sans-serif; font-size: 1.30rem;">
+  Booking Details
+</p>
+    </div>
+
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-8 col-lg-6">
+
+        <div class="mb-5">
+          <h4 class="text-dark" style="font-family: 'Arial', sans-serif;"><strong>Booking Period</strong></h4>
+          <p><strong>Start:</strong> <%= @booking.begin_date.strftime("%-d %B %Y") %></p>
+          <p><strong>End:</strong> <%= @booking.end_date.strftime("%-d %B %Y") %></p>
+        </div>
+
+
+        <div class="mb-5">
+          <h4 class="text-dark" style="font-family: 'Arial', sans-serif;"><strong>Booked by</strong></h4>
+          <p><%= @booking.user.email %></p>
+        </div>
+
+        <div class="mb-5">
+          <h4 class="text-dark" style="font-family: 'Arial', sans-serif;"><strong>Palace Details</strong></h4>
+          <p><strong>Name:</strong> <%= @booking.palace.name %></p>
+          <p><strong>Address:</strong> <%= @booking.palace.address %></p>
+          <p><strong>Description:</strong> <%= @booking.palace.description %></p>
+          <p><strong>Price:</strong> <%= @booking.palace.price %>€</p>
+        </div>
+
+
+        <div class="mb-5">
+          <h4 class="text-dark" style="font-family: 'Arial', sans-serif;"><strong>Status</strong></h4>
+          <% if @booking.status.nil? %>
+            <p class="text-warning"><strong>Pending</strong></p>
+          <% elsif @booking.status == false %>
+            <p class="text-danger"><strong>Refused</strong></p>
+          <% else %>
+            <p class="text-success"><strong>Confirmed</strong></p>
+          <% end %>
+        </div>
+
+
+        <div class="d-flex justify-content-between mt-5">
+          <% if @booking.user == current_user %>
+            <%= link_to "Edit the booking", edit_booking_path(@booking), class: "button-search" %>
+            <%= link_to "Back to my bookings", dashboard_bookings_as_visitor_path, class: "button-search" %>
+          <% elsif current_user == @booking.palace.user %>
+            <% if @booking.status.nil? %>
+              <%= link_to "Accept the booking", accept_booking_path(@booking), class: "btn btn-success", data: { turbo_method: :patch } %>
+              <%= link_to "Refuse the booking", refuse_booking_path(@booking), class: "btn btn-danger", data: { turbo_method: :patch } %>
+            <% end %>
+            <%= link_to "Back to my bookings", dashboard_bookings_as_owner_path, class: "btn btn-secondary mt-3" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
