@@ -1,11 +1,31 @@
 <div class="container mt-5">
-  <!-- Onglets de navigation -->
-  <div class="d-flex justify-content-md-center pb-5">
-    <%= link_to "Voir", dashboard_palaces_path, class: "mx-3" %>
-    <%= link_to "Gérer mes réservations", dashboard_bookings_as_owner_path, class: "mx-3" %>
-  </div>
 
-  <!-- Gestion des réservations futures -->
+<div class= "row">
+  <ul class="nav nav-tabs" >
+    <div class= "col-4">
+      <li class="nav-item flex-fill">
+        <%= link_to dashboard_palaces_path, class: "nav-link w-100" do %>
+            <div aria-current="page">SEE MY PALACES</div>
+        <% end %>
+      </li>
+      </div>
+      <div class = "col-4">
+      <li class="nav-item flex-fill">
+        <%= link_to dashboard_bookings_as_owner_path, class: "nav-link active w-100" do %>
+            <div aria-current="page", >MANAGE THE BOOKING</div>
+        <% end %>
+      </li>
+        </div>
+        <div class= "col-4">
+      <li class="nav-item flex-fill">
+        <%= link_to new_palace_path, class: "nav-link w-100" do %>
+        <div aria-current="page", >ADD A PALACE</div>
+        <% end %>
+      </li>
+    </div>
+  </ul>
+</div>
+ <div class="container mt-5">
   <div class="my-5">
     <h2 style="color: #000000; font-family: 'Arial', sans-serif; font-size: 26px; text-align: center; text-transform: uppercase; letter-spacing: 2px; border-bottom: 2px solid #000000; padding-bottom: 10px;">
       Manage My Future Bookings
@@ -122,4 +142,5 @@
       <% end %>
     </div>
   </div>
+</div>
 </div>
