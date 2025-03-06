@@ -3,7 +3,11 @@ class PalacesController < ApplicationController
   before_action :set_palace, only: [:show, :edit, :update, :destroy]
 
   def index
-    @palaces = Palace.all
+    if params[:query].present?
+      @palaces = Palace.search_by_location(params[:query])
+    else
+      @palaces = Palace.all
+    end
   end
 
   def show
