@@ -36,3 +36,8 @@
   outline: none;
   appearance: none;
 }
+.sticky-navbar {
+  z-index: 9999999999999;
+  position: sticky !important;
+  top: 0;
+}
