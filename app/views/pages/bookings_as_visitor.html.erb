@@ -7,7 +7,7 @@
   <div class="row gx-4">
   <% if @future_bookings.empty? %>
     <div class="card" style="width: 15rem; margin: auto; height: 16rem; overflow: hidden;">
-      <div class="card-body" style="padding: 0.75rem;">
+      <div class="card-body" style="padding: 1rem;">
         <h5 class="card-title" style="color: #6c757d; font-size: 1rem; margin-bottom: 0.5rem;">No booking here yet!</h5>
         <%= link_to "Check the palaces!", palaces_path, class: "button-primary btn-center", class: "button-card" %>
       </div>
@@ -17,7 +17,6 @@
       <div class="col-6 col-md-3" style="margin-bottom: 1.5rem;">
 
         <%= link_to booking_path(booking), class: "card-link" do %>
-          <div class="card" style="width: 12rem; margin: auto; height: 18rem; overflow: hidden; border: none; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); transition: box-shadow 0.3s ease-in-out;">
 
               <div class="card" style="width: 12rem; margin: auto; height: 18rem; overflow: hidden; border: none; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); transition: box-shadow 0.3s ease-in-out;">
                 <div id="carousel<%= dom_id(booking.palace) %>" class="carousel slide">
@@ -46,7 +45,7 @@
                 </div>
 
 
-            <div class="card-body" style="padding: 0.5rem; height: 8rem;">
+            <div class="card-body" style="padding: 1rem;">
 
               <h5 class="card-title card-title-test" style="font-size: 1rem; margin-bottom: 0.25rem;"><strong><%= booking.palace.name %></strong></h5>
 
@@ -68,6 +67,7 @@
       </div>
     <% end %>
   <% end %>
+</div>
 </div>
 
 <div class="my-5"></div>
