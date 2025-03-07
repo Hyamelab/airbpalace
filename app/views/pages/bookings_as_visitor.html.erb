@@ -19,8 +19,32 @@
         <%= link_to booking_path(booking), class: "card-link" do %>
           <div class="card" style="width: 12rem; margin: auto; height: 18rem; overflow: hidden; border: none; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); transition: box-shadow 0.3s ease-in-out;">
 
-            <img src="https://cdn.lecollectionist.com/__lecollectionist__/production/houses/7336/photos/Yz13vnLwSjG3i5F4VdpC_0c03f529-5d68-40c4-b964-c19b8d16c019.jpg?width=2880&q=65"
-              class="card-img-top" style="object-fit: cover; height: 6rem; width: 100%;" alt="Image of <%= booking.palace.name %>">
+              <div class="card" style="width: 12rem; margin: auto; height: 18rem; overflow: hidden; border: none; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); transition: box-shadow 0.3s ease-in-out;">
+                <div id="carousel<%= dom_id(booking.palace) %>" class="carousel slide">
+                  <div class="carousel-inner">
+                    <% if booking.palace.photos.any? %>
+                      <% booking.palace.photos.each do |photo| %>
+                        <div class="carousel-item active">
+                        <%= cl_image_tag photo.key, class:"d-block w-100 card-img-top", style:"object-fit: cover; height: 6rem; width: 100%;", alt:"Image of #{booking.palace.name}" %>
+                        </div>
+                      <% end %>
+                    <% else %>
+                      <div class="carousel-item">
+                        <img src="https://cdn.lecollectionist.com/__lecollectionist__/production/houses/7336/photos/Yz13vnLwSjG3i5F4VdpC_0c03f529-5d68-40c4-b964-c19b8d16c019.jpg?width=2880&q=65"
+                        class="card-img-top" style="object-fit: cover; height: 6rem; width: 100%;" alt="Image of <%= booking.palace.name %>">
+                      </div>
+                    <% end %>
+                  </div>
+                  <button class="carousel-control-prev" type="button" data-bs-target="#carousel<%= dom_id(booking.palace) %>" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                  </button>
+                  <button class="carousel-control-next" type="button" data-bs-target="#carousel<%= dom_id(booking.palace) %>" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                  </button>
+                </div>
+
 
             <div class="card-body" style="padding: 0.5rem; height: 8rem;">
 

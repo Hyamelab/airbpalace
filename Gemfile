@@ -54,6 +54,7 @@ gem "devise"
 gem 'pg_search'
 
 gem "geocoder"
+gem "cloudinary"
 
 group :development, :test do
   gem "dotenv-rails"
