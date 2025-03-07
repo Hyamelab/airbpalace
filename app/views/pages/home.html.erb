@@ -6,10 +6,17 @@
         <h3>Louez votre palace de rêve pour vos vacances</h3>
       <div class="wrap-bottom mt-5 mb-2">
         <div class="navbar-bottom w-100 d-flex justify-content-center">
-          <form class="d-flex" role="search">
-            <input class="recherche me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="button-search" type="submit">Search</button>
-          </form>
+       <%= form_with url: root_path, method: :get, class: "d-flex position-relative" do %>
+        <%= text_field_tag :query,
+          params[:query],
+          class: "form-control",
+          placeholder: "Search a palace"
+        %>
+          <%=link_to root_path do %>
+          <i class="cross fa-solid fa-xmark"></i>
+          <% end %>
+        <%= submit_tag "Search", class: "btn btn-primary" %>
+      <% end %>
         </div>
       </div>
       </div>
@@ -19,7 +26,7 @@
 <div class="container mt-5">
   <div class="row justify-content-evenly g-3">
     <% @palaces.each do |palace| %>
-      <div class="card" style="width: 18rem;">
+      <div class="card rounded shadow-lg" style="width: 18rem;">
         <div id="carousel<%= dom_id(palace) %>" class="carousel slide">
           <div class="carousel-inner">
             <% if palace.photos.any? %>
@@ -44,7 +51,7 @@
             </button>
           </div>
           <div class="card-body">
-            <h5 class="card-title"><strong><%= palace.name %></strong></h5>
+            <h5 class="card-title card-title-test"><strong><%= palace.name %></strong></h5>
             <p class="card-text"><em><%= palace.address %></em></p>
             <%= link_to "See the palace", palace_path(palace), class:"button-card"%>
           </div>
@@ -52,13 +59,4 @@
       </div>
     <% end %>
   </div>
-</div>
 
-
-<%# <div class="card" style="width: 18rem;">
-        <img src="https://cdn.lecollectionist.com/__lecollectionist__/production/houses/7336/photos/Yz13vnLwSjG3i5F4VdpC_0c03f529-5d68-40c4-b964-c19b8d16c019.jpg?width=2880&q=65" class="card-img-top" style="object-fit: contain;" alt="...">
-        <div class="card-body">
-          <h5 class="card-title card-title-test"><strong><%= palace.name %></strong></h5>
-          <p class="card-text"><em><%= palace.address %></em></p>
-          <%= link_to "See the palace", palace_path(palace), class:"button-card"%>
-        </div>

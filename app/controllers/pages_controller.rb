@@ -2,7 +2,11 @@ class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:home, :profil]
 
   def home
-    @palaces = Palace.all
+    if params[:query].present?
+      @palaces = Palace.search_by_location(params[:query])
+    else
+      @palaces = Palace.all
+    end
   end
 
   def palaces

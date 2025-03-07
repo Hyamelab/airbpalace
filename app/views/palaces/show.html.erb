@@ -1,10 +1,25 @@
 <div class="content-wrapper">
-  <% if @palace.photos.any? %>
-    <div><%= cl_image_tag @palace.photos.first.key, height: 300, width: 400, crop: :fill %></div>
-  <% else %>
-    <div class="image-background-show">
+  <div id="carousel<%= dom_id(@palace) %>" class="carousel slide">
+    <div class="carousel-inner">
+      <% if @palace.photos.any? %>
+        <% @palace.photos.each do |photo| %>
+          <div class="carousel-item active">
+          <%= cl_image_tag photo.key, class:"d-block w-100" %>
+          </div>
+        <% end %>
+      <% else %>
+        <div class="image-background-show"></div>
+      <% end %>
     </div>
-  <% end %>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carousel<%= dom_id(@palace) %>" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carousel<%= dom_id(@palace) %>" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
 </div>
 <div class='container'>
 <div class= 'titre'>
@@ -75,11 +90,13 @@
     </div>
 </div>
 
-<div class="rounded-4 shadow" style="width: 100%; height: 600px;"
+<div class="rounded-4 shadow mt-5" style="width: 100%; height: 600px;"
   data-controller="map"
   data-map-markers-value="<%= [@marker].to_json %>"
   data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
 
 <%= link_to "See all the palaces", palaces_path, class: "button-primary" %>
-
+<% if @palace.user == current_user %>
+  <%= link_to "Edit my palace", edit_palace_path, class: "button-primary" %>
+<%end%>
 </div>
