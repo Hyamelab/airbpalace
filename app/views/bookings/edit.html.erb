@@ -8,23 +8,20 @@
     </div>
   </div>
 
- 
-  <div class="container py-5">
-    <div class="row justify-content-center">
-      <div class="col-12 col-md-8 col-lg-6">
-        <%= simple_form_for [@palace, @booking], html: { data: { controller: 'flatpickr' } } do |f| %>
-          <div class="mb-4">
-            <%= f.input :begin_date, as: :string, input_html: { data: { flatpickr_target: 'startDateInput' }, class: 'form-control' }, label: "Start Date", label_html: { class: "font-weight-semibold" } %>
-          </div>
 
-          <div class="mb-4">
-            <%= f.input :end_date, as: :string, input_html: { data: { flatpickr_target: 'endDateInput' }, class: 'form-control' }, label: "End Date", label_html: { class: "font-weight-semibold" } %>
-          </div>
+<div class="container mt-5 d-flex justify-content-center">
+  <div class = "card border-0 rounded shadow-lg p-4" style="max-width: 700px; width: 100%;">
+    <%= simple_form_for [@palace, @booking], html: { data: { controller: 'flatpickr' } } do |f| %>
+      <div class="form-group mb-3">
+        <%= f.input :begin_date, as: :string, input_html: { data: { flatpickr_target: 'startDateInput' }, class: 'form-control' }, label: "Start Date", label_html: { class: "font-weight-semibold" } %>
+      </div>
+      <div class="form-group mb-3">
+        <%= f.input :end_date, as: :string, input_html: { data: { flatpickr_target: 'endDateInput' }, class: 'form-control' }, label: "End Date", label_html: { class: "font-weight-semibold" } %>
+      </div>
 
-          <div class="d-flex justify-content-between mt-4">
-            <%= f.submit "Update the booking request", class: "button-search" %>
-            <%= link_to "Back to booking details", booking_path(@booking), class: "button-search" %>
-          </div>
+      <div class="d-flex justify-content-between">
+        <%= f.submit "Update the booking request", class: "button-card" %>
+      </div>
         <% end %>
       </div>
     </div>
