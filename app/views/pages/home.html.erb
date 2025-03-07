@@ -27,13 +27,36 @@
   <div class="row justify-content-evenly g-3">
     <% @palaces.each do |palace| %>
       <div class="card rounded shadow-lg" style="width: 18rem;">
-        <img src="https://cdn.lecollectionist.com/__lecollectionist__/production/houses/7336/photos/Yz13vnLwSjG3i5F4VdpC_0c03f529-5d68-40c4-b964-c19b8d16c019.jpg?width=2880&q=65" class="card-img-top" style="object-fit: contain;" alt="...">
-        <div class="card-body">
-          <h5 class="card-title card-title-test"><strong><%= palace.name %></strong></h5>
-          <p class="card-text"><em><%= palace.address %></em></p>
-          <%= link_to "See the palace", palace_path(palace), class:"button-card"%>
+        <div id="carousel<%= dom_id(palace) %>" class="carousel slide">
+          <div class="carousel-inner">
+            <% if palace.photos.any? %>
+              <% palace.photos.each do |photo| %>
+              <div class="carousel-item active">
+              <%= cl_image_tag photo.key, class:"d-block w-100" %>
+              </div>
+              <% end %>
+            <% else %>
+              <div class="carousel-item">
+                <img src="https://cdn.lecollectionist.com/__lecollectionist__/production/houses/7336/photos/Yz13vnLwSjG3i5F4VdpC_0c03f529-5d68-40c4-b964-c19b8d16c019.jpg?width=2880&q=65" class="card-img-top" style="object-fit: contain;" alt="...">
+              </div>
+            <% end %>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carousel<%= dom_id(palace) %>" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carousel<%= dom_id(palace) %>" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+          <div class="card-body">
+            <h5 class="card-title card-title-test"><strong><%= palace.name %></strong></h5>
+            <p class="card-text"><em><%= palace.address %></em></p>
+            <%= link_to "See the palace", palace_path(palace), class:"button-card"%>
+          </div>
         </div>
       </div>
     <% end %>
   </div>
-</div>
+

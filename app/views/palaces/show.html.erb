@@ -1,6 +1,25 @@
 <div class="content-wrapper">
-    <div class="image-background-show">
+  <div id="carousel<%= dom_id(@palace) %>" class="carousel slide">
+    <div class="carousel-inner">
+      <% if @palace.photos.any? %>
+        <% @palace.photos.each do |photo| %>
+          <div class="carousel-item active">
+          <%= cl_image_tag photo.key, class:"d-block w-100" %>
+          </div>
+        <% end %>
+      <% else %>
+        <div class="image-background-show"></div>
+      <% end %>
     </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carousel<%= dom_id(@palace) %>" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carousel<%= dom_id(@palace) %>" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
 </div>
 <div class='container'>
 <div class= 'titre'>
