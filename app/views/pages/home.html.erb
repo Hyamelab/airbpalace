@@ -15,7 +15,7 @@
           <%=link_to root_path do %>
           <i class="cross fa-solid fa-xmark"></i>
           <% end %>
-        <%= submit_tag "Search", class: "btn btn-primary" %>
+        <%= submit_tag "Search", class: "btn-primari" %>
       <% end %>
         </div>
       </div>
@@ -53,10 +53,9 @@
           <div class="card-body">
             <h5 class="card-title card-title-test"><strong><%= palace.name %></strong></h5>
             <p class="card-text"><em><%= palace.address %></em></p>
-            <%= link_to "See the palace", palace_path(palace), class:"button-card"%>
+            <%= link_to "See the palace", palace_path(palace), class:"button-search"%>
           </div>
         </div>
-      </div>
     <% end %>
+      </div>
   </div>
-
