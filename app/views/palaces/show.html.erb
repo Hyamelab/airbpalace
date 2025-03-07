@@ -4,7 +4,7 @@
       <% if @palace.photos.any? %>
         <% @palace.photos.each do |photo| %>
           <div class="carousel-item active">
-          <%= cl_image_tag photo.key, class:"d-block w-100" %>
+          <%= cl_image_tag photo.key , class: "banner"%>
           </div>
         <% end %>
       <% else %>
@@ -21,11 +21,11 @@
     </button>
   </div>
 </div>
+
 <div class='container'>
 <div class= 'titre'>
-
-<h2 class = "text-start"> <%= @palace.name %></h2>
-<% if @palace.user != current_user %>
+    <h2 class = "text-start"> <%= @palace.name %></h2>
+  <% if @palace.user != current_user %>
     <div class="booking-form-container">
       <strong><p class = 'text-align'><%= @palace.price %>€</strong> par nuit</p>
       <%= simple_form_for [@palace, @booking],
@@ -33,13 +33,17 @@
         <%= f.input :begin_date, as: :string, input_html: { data: { flatpickr_target: 'startDateInput', } } %>
         <%= f.input :end_date, as: :string, input_html: { data: { flatpickr_target: 'endDateInput' } } %>
         <%= f.submit "Book!", class: "button-card" %>
-      <% end %>
-    </div>
-<% end %>
+        <% end %>
+  <% end %>
+
+  <% if @palace.user == current_user %>
+  <%= link_to "Edit my palace", edit_palace_path, class: "button-primary" %>
+  <%end%>
+</div>
 <p class = 'text-bg-primary" style="width: 6rem;'> <em>The address of the palace is <%= @palace.address %></em></p>
 
 <br>
-<p class = 'text-align'> <%= @palace.description %></p>
+<p class = 'text-align description'> <%= @palace.description %></p>
 </div>
 
 <div class=" text border-test pb-10 md:mb-9 md:border-grey-200 md:border-b">
@@ -95,8 +99,7 @@
   data-map-markers-value="<%= [@marker].to_json %>"
   data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
 
+<% if @palace.user != current_user %>
 <%= link_to "See all the palaces", palaces_path, class: "button-primary" %>
-<% if @palace.user == current_user %>
-  <%= link_to "Edit my palace", edit_palace_path, class: "button-primary" %>
 <%end%>
 </div>
