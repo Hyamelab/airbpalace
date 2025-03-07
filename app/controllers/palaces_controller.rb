@@ -33,7 +33,7 @@ class PalacesController < ApplicationController
     @palace = Palace.new(palace_params)
     @palace.user = current_user
     if @palace.save
-      redirect_to palaces_path
+      redirect_to root_path
     else
       render :new, status: :unprocessable_entity
     end
