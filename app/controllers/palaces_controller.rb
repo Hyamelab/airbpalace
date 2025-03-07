@@ -57,7 +57,7 @@ class PalacesController < ApplicationController
   private
 
   def palace_params
-    params.require(:palace).permit(:name, :description, :address, :price)
+    params.require(:palace).permit(:name, :description, :address, :price, photos: [])
   end
 
   def set_palace

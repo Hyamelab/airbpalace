@@ -10,5 +10,7 @@ class User < ApplicationRecord
   has_many :bookings_as_visitor, class_name: "Booking", dependent: :destroy
   has_many :bookings_as_owner, through: :palaces, source: :bookings
 
+  has_one_attached :photo
+
   validates :first_name, presence: true, uniqueness: { scope: :last_name }
 end

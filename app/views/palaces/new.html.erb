@@ -26,13 +26,14 @@
       </div>
 
 <div class="container mt-5">
-  
+
 
   <%= simple_form_for(@palace) do |f| %>
     <%= f.input :name, label: "Name" %>
     <%= f.input :description, label: "Description" %>
     <%= f.input :address, label: "Address" %>
     <%= f.input :price, label: "Your Price" %>
+    <%= f.input :photos, as: :file, input_html: { multiple: true } %>
     <%= f.submit "Submit", class: "btn btn-primary" %>
   <% end %>
 </div>

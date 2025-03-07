@@ -1,6 +1,10 @@
 <div class="content-wrapper">
+  <% if @palace.photos.any? %>
+    <div><%= cl_image_tag @palace.photos.first.key, height: 300, width: 400, crop: :fill %></div>
+  <% else %>
     <div class="image-background-show">
     </div>
+  <% end %>
 </div>
 <div class='container'>
 <div class= 'titre'>
