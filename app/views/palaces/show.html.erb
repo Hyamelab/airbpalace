@@ -100,6 +100,6 @@
     data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
 
   <% if @palace.user != current_user %>
-    <%= link_to "See all the palaces", palaces_path, class: "button-primary" %>
+    <%= link_to "See all the palaces", root_path, class: "button-primary" %>
   <%end%>
 </div>
